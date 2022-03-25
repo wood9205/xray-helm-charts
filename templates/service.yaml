@@ -6,6 +6,10 @@ metadata:
     {{- include "xray.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.service.type }}
+  {{- if .Values.service.externalip.enabled }}
+  externalIPs:
+    {{  .Values.service.externalIP.ip}}
+  {{- end }}
   ports:
     - port: {{ .Values.service.port }}
       targetPort: {{ .Values.service.targetPort }}

@@ -38,6 +38,9 @@ securityContext: {}
 
 service:
   type: ClusterIP
+  externalIP:
+    enabled: false
+    ip: []
   port: 443
   targetPort: 443
   name: xray
